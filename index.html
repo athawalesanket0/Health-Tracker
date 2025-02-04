@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Health Tracker</title>
+</head>
+
+<body>
+    <div class="container">
+        <section class="add-workout">
+            <div class="add-workout-container">
+                <div class="user">
+                    <div class="user-info">
+                        <label for="user-name">User Name <span class="required">*</span></label>
+                        <input type="text" id="user-name" name="user-name" required>
+                    </div>
+                    <div class="user-info">
+                        <label for="workout-type">Workout Type <span class="required">*</span></label>
+                        <select name="workout-type" id="workout-type" required>
+                            <option value="">Select Workout</option>
+                            <option value="cycling">Cycling</option>
+                            <option value="running">Running</option>
+                            <option value="swimming">Swimming</option>
+                            <option value="yoga">Yoga</option>
+                        </select>
+                    </div>
+                    <div class="user-info">
+                        <label for="workout-min">Workout Minutes <span class="required">*</span></label>
+                        <input type="number" id="workout-min" name="workout-min" min="0" required>
+                    </div>
+                </div>
+                <button class="add-btn" id="add-btn" type="submit">Add Workout</button>
+            </div>
+        </section>
+
+        <section class="pagination">
+            <div class="heading">
+                <input type="search" id="search" name="search" placeholder="Search Workouts">
+                <div class="workout-filter">
+                    <label for="workout-filter-type">Filter by Workout Type</label>
+                    <select name="workout-filter-type" id="workout-filter-type">
+                        <option value="all">All</option>
+                        <option value="cycling">Cycling</option>
+                        <option value="running">Running</option>
+                        <option value="swimming">Swimming</option>
+                        <option value="yoga">Yoga</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Workouts</th>
+                            <th>Number of Workouts</th>
+                            <th>Total Workout Minutes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="workoutTableBody">
+                        <!-- Workout data will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination-number">
+                <div class="page-numbers">
+                    <button class="prev">Previous</button>
+                    <button>1</button>
+                    <button class="next">Next</button>
+                </div>
+                <div class="per-page">
+                    <label for="items-per-page">Items per page:</label>
+                    <select name="items-per-page" id="items-per-page">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section class="display">
+            <div class="sidebar">
+                <ul id="userList">
+                    <!-- User list will be dynamically added here -->
+                </ul>
+            </div>
+            <div class="graph-container">
+                <h2 id="userTitle">User Workout Progress</h2>
+                <canvas id="workoutChart"></canvas>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
